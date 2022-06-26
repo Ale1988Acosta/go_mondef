@@ -1,0 +1,511 @@
+body{
+    background: url();
+    background-size:100% ;
+}
+
+/*formato*/
+
+#header .navbar-toggle {
+  align-items: center;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  margin-left: .5rem;
+  margin-right: 1rem;
+  padding: .25rem .25rem .25rem .5rem;
+}
+
+
+.imagbarra{
+  width: 20%;
+  max-width: 120px;
+  margin: auto;
+  margin-right: 5px;
+}
+
+.barra{
+  border-radius: 10px;
+  background-color: #7839BA;
+}
+
+.cuadro{
+  background: white;
+  border: 2px solid #7839BA;
+  padding: 25px; 
+}
+
+.titulo{
+  color: #7839BA;
+  text-align: center;
+}
+
+/*Tipo de fuente global*/
+*{
+  font-family:"Century Gothic";
+}
+
+.pimag{
+  width: 100%;
+  max-width: 500px;
+  min-width: 100px;
+  margin:auto;
+  border-radius: 25px;
+  display: block;
+}
+
+.button{
+  margin: 20px;
+  border-radius: 20px;
+}
+
+h3{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+.forinp{
+  border-radius: 25px;
+}
+
+.imagens{
+  width: 100%;
+  max-width: 400px;
+  margin:auto;
+  display: block;
+}
+
+.experiencia{
+  margin:auto;
+}
+
+.letras{
+  text-align: center;
+}
+
+.simag{
+  width: 100%;
+  max-width: 400px;
+}
+
+.centradio{
+  margin-left: 50px;
+}
+
+.foto{
+  max-width: 100%;
+  width: 200px;
+  right: 300px;
+  margin: auto;
+}
+
+.fotperf{
+  margin: auto;
+  width: 100%;
+  width: 200px;
+  border-radius: 25px;
+}
+
+.imgradio{
+  margin: auto;
+  width: 100%;
+  width: 125px;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.relative {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+.formacion {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+.termino{
+  margin-top: 60px;
+  background-color:#b38fda;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.ingreso {
+  border-radius: 25px;
+  background-color: #FFFCF7;
+  width: 100%;
+  max-width: 250px;
+}
+
+.redes{
+  margin: auto; 
+  display:block; 
+  color: white;
+  width: 100%;
+  max-width: 35px;
+}
+
+
+/*diseño*/
+
+
+/*Tipo de fuente global*/
+*{
+  font-family:"Century Gothic";
+}
+
+.calma{
+  width:100%;
+  max-width: 40px;
+  margin: auto;
+}
+
+.card {
+  word-wrap: break-word;
+  background-clip: border-box;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  
+}
+.card {
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+}
+.border-light {
+  border-color: #ddd!important;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+.signup-or-separator {
+  color: #222;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+.text-center {
+  text-align: center!important;
+}
+h6 {
+  display: block;
+  font-size: 0.99em;
+  margin-block-start: 2.33em;
+  margin-block-end: 2.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-weight: 700;
+}
+.m-0 {
+  margin: 0!important;
+  
+}
+.d-inline-block {
+  display: inline-block!important;
+}
+
+.limitar{
+  width: 10%;
+  max-width: 50px;
+  margin: auto;
+}
+
+.opac2:hover{
+  opacity: 0.9;
+}
+
+.opcacol:hover{
+  color: #7839BA;
+}
+
+hr:not([size]) {
+  height: 1px;
+}
+hr {
+  background-color: currentColor;
+  border: 0;
+  color: inherit;
+  margin: 1rem 0;
+  opacity: .25;
+}
+.estilnav{
+  background-color: #7839BA;
+  box-shadow: 0px 8px 16px 0px rgba(155, 155, 155, 0.515);
+}
+
+.so{
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+} 
+
+table{
+  width: 100%;
+  max-width: 460px;
+  display: block;
+  overflow-x: auto;
+  margin: auto;
+}
+
+.imagbarra{
+  width: 20%;
+  max-width: 120px;
+  margin: auto;
+  margin-right: 5px;
+}
+
+.barra{
+  border-radius: 10px;
+  background-color: #7839BA;
+}
+
+.cuadro{
+  background: white;
+  border: 2px solid #7839BA;
+  padding: 25px; 
+}
+
+.titulo{
+  color: #7839BA;
+  text-align: center;
+}
+
+/*Tipo de fuente global*/
+*{
+  font-family:"Century Gothic";
+}
+
+.pimag{
+  width: 100%;
+  max-width: 500px;
+  min-width: 100px;
+  margin:auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.button{
+  margin: 20px;
+  border-radius: 10px;
+}
+
+h3,h6{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #7839BA;
+  font-weight: 700;
+}
+
+.forinp{
+  border-radius: 10px;
+}
+
+.imagens{
+  width: 100%;
+  max-width: 400px;
+  margin:auto;
+  display: block;
+}
+
+.experiencia{
+  margin:auto;
+}
+
+.letras{
+  text-align: center;
+}
+
+.simag{
+  width: 100%;
+  max-width: 400px;
+}
+
+.centradio{
+  margin-left: 50px;
+}
+
+.foto{
+  max-width: 100%;
+  width: 200px;
+  right: 300px;
+  margin: auto;
+}
+
+.fotperf{
+  margin: auto;
+  width: 100%;
+  width: 200px;
+  border-radius: 25px;
+}
+
+.imgradio{
+  margin: auto;
+  width: 100%;
+  width: 125px;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.relative {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+.formacion {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+
+
+.ingreso {
+  border-radius: 25px;
+  background-color: #FFFCF7;
+  width: 100%;
+  max-width: 250px;
+}
+
+.redes{
+  margin: auto; 
+  display:block; 
+  color: white;
+  width: 100%;
+  max-width: 35px;
+  margin-top: 10px;
+}
+
+.iconos{
+  margin: auto; 
+  display:block; 
+  width: 100%;
+  max-width: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.margen{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cuadroreser{
+  background: white;
+  border: 2px solid #7839BA;
+  width: 100%; 
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.caja{
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #ef5350;
+  background: #ef5350;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.caja1{
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #00a65a;
+  background: #00a65a;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.caja2{
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #5867dd;
+  background: #5867dd;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.caja3{
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #f39c12;
+  background: #f39c12;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table{
+  width: 100%;
+  max-width: 460px;
+  display: block;
+  overflow-x: auto;
+  margin: auto;
+}
+
+.reserva{
+  width: 100%;
+  max-width: 160px;
+  overflow-x: auto;
+  display: block;
+  overflow-x: auto;
+  margin: auto;
+}
+
+.ima{
+  width:100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.centrado{
+  text-align: center;
+}
+
+.limitar1{
+  width:100%;
+  max-width: 70px;
+  margin: auto;
+
+}
+
+.separaciontex{
+  margin-top: 2%;
+}
+
+.sepa{
+  margin-top: 2%;
+  
+}

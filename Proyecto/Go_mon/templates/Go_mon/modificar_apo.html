@@ -1,0 +1,117 @@
+{% extends 'Go_mon/plantillaedit.html' %}
+{% load static %}
+
+{% block cabecera %}
+<title>{{ apo.nombre }}   {{ apo.p_apellido }}</title>
+{% endblock cabecera %}
+
+{% block nombre %}
+<div class="container-fluid" style="margin-top: 80px;">
+    <div class="row">
+    <div class="col-md-2 col-sm-12">
+        <img src="{{apo.foto.url}}" alt="" width="90%" height="90%" class="img_left rounded" style="margin: 10px;">
+    </div>
+    <div class="col-md-10 col-sm-12">
+        <h2><br>{{ apo.nombre }}   {{ apo.p_apellido }}</h2>
+        <p>Registrado como : {{ user.rol.nombre }} </p>
+    </div>
+    </div>
+</div>
+{% endblock nombre %}
+
+{% block menor %}
+<form action="{% url 'modifApo' apo.rut_apoderado %}" method="POST" name="formulario" id="formu_1">
+    {% csrf_token %}
+    <h3>Modificar Datos</h3>
+        <div class="row" >
+          <div class="col-md-4 col-sm-12">
+            <p>Nombres*:</p>
+            <input type="text" class="form-control" value="{{ apo.nombre }}" name="nombre" id="nombre" style="border-radius: 50px;" required>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <p>Primer Apellido*:</p>
+            <input type="text" class="form-control" value="{{ apo.p_apellido }}" name="p_apellido" id="p_apellido" style="border-radius: 50px;" required>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <p>Segundo Apellido:</p>
+            <input type="text" class="form-control" value="{{ apo.s_apellido }}" name="s_apellido" id="s_apellido" style="border-radius: 50px;">
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12" style="margin-top: 0.9%;">
+                <p>Sexo*:</p>
+                <select name="genero" id="genero" class="form-control" style="border-radius: 50px;">
+                    {% for s in sexo %}
+                        {% if s.id_Sexo == apo.sexo.id_Sexo %}
+                            <option value="{{s.id_Sexo}}">{{s.nombre}}</option>
+                        {% else %}
+                            <option value="{{s.id_Sexo}}">{{s.nombre}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+          <div class="col-md-6 col-sm-12">
+            <p style="margin-top: 10px;">Numero telefonico*:</p>
+            <input type="text" class="form-control" value="{{ apo.celular }}" name="telefono" id="telefono" style="border-radius: 50px;" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <p style="margin-top: 10px;">Correo electronico*:</p>
+            <input type="text" class="form-control" value="{{ apo.correo }}" name="email" id="email" style="border-radius: 50px;" required>
+          </div>
+
+          <div class="col-md-6 col-sm-12">
+            <p style="margin-top: 10px;">Contraseña*:</p>
+            <input type="password" class="form-control" value="{{ user.clave }}" name="password" id="password" style="border-radius: 50px;" required readonly>
+          </div>
+
+        </div>
+
+        <div class="row" style="border-radius: 10px;">
+          <div class="col-md-6 col-sm-12">
+            <p style="margin-top: 10px;">Direccion*:</p>
+            <input type="text" class="form-control" value="{{ di.descripApoderado }}" name="direccion" id="direccion" style="border-radius: 50px;" required>
+          </div>
+          <div class="col-md-6 col-sm-12" >
+                <p style="margin-top: 10px;">Comuna*:</p>
+                <select name="comuna" id="comuna" class="form-control" style="border-radius: 50px;">
+                    {% for c in com %}
+                        {% if c.id_Comuna == di.comuna.id_Comuna %}
+                            <option value="{{c.id_Comuna}}" selected>{{c.nombreComuna}}</option>
+                        {% else %}
+                            <option value="{{c.id_Comuna}}">{{c.nombreComuna}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+
+    <h3 style="margin-top: 5%;">Verificacion de la Identidad</h3>
+    <div class="row mb-3 " style="margin-top: 5%;">
+      <label1 for="cedula" class="col-sm-2 col-form-label">Cedula de Identidad*</label1>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="cedula" name="cedula" style="border-radius: 50px;" value="{{ apo.rut_apoderado }}" readonly>
+      </div>
+    </div>
+
+    <input class="form-control" type="hidden" id="correoU" name="correoU" value="{{ apo.correo }}"
+                style="margin-top: -28px; border-radius: 50px;" required>
+    <input class="form-control" type="hidden" id="pass" name="pass" value="{{ user.clave }}"
+                style="margin-top: -28px; border-radius: 50px;" required>
+    <input class="form-control" type="hidden" id="idDire" name="idDire" value="{{ di.id_DirApod }}"
+                style="margin-top: -28px; border-radius: 50px;" required>
+    
+    
+
+    <center>
+        <div class="col-md-12 col-md-12">
+            <button type="submit" class="btn btn-primary"
+            style="background-color: #7839BA; color: rgb(255, 255, 255); border-color: #7839BA;">Guardar</button>
+        </div>
+    </center>
+</form>  
+{% endblock menor %}

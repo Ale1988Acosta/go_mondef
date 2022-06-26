@@ -1,0 +1,238 @@
+/* Menú */
+.barra{
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    background-color:#7839BA;
+    
+
+}
+
+/*Fuente */
+*{
+  font-family:"Century Gothic";
+}
+
+
+/* Linea Separadora */
+hr{
+    width: 100%;
+    height: 4px;
+    background: purple;
+    margin: 20px 5px;
+   
+}
+
+.button{
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.515);
+}
+
+
+/* Borde cuadros  */
+.borde{
+    border: 2px solid;
+    border-color: mediumorchid;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.515);
+    border-radius: 10px;
+}
+.borde2{
+  border: 2px solid;
+  border-color: mediumorchid;
+  border-radius: 5px;
+  margin: 20px;
+  
+}
+
+/* Posicion imagen */
+.img_left{
+    float: left;
+}
+
+/* Emojis */
+.emojis{
+    text-align: center;
+  }
+.tamaño_emojis {
+    font-size: 20px;
+  }
+
+/* Estrellas */
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  .tamaño {
+    font-size: 50px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  #label1 {
+    color: grey;
+  }
+  
+  .clasificacion_personas {
+    direction: rtl;
+    text-align: end;
+  }
+  .clasificacion_general {
+    direction: rtl;
+    text-align: center;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+/*formato abajo*/
+
+
+.imgradio{
+  margin: auto;
+  width: 100%;
+  width: 125px;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.relative {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+.formacion {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  display: block;
+  padding: 30px;
+}
+
+.termino{
+  margin-top: 60px;
+  background-color: #7839BA;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.ingreso {
+  border-radius: 25px;
+  background-color: #FFFCF7;
+  width: 100%;
+  max-width: 250px;
+}
+
+.redes{
+  margin: auto; 
+  display:block; 
+  color: white;
+  width: 100%;
+  max-width: 35px;
+}
+
+
+/*diseño abajo*/
+
+.calma{
+  width:40%;
+  max-width: 100px;
+  margin: auto;
+}
+
+.card {
+  word-wrap: break-word;
+  background-clip: border-box;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  
+}
+.card {
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+}
+.border-light {
+  border-color: #ddd!important;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+.signup-or-separator {
+  color: #222;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+.text-center {
+  text-align: center!important;
+}
+h6 {
+  display: block;
+  font-size: 0.99em;
+  margin-block-start: 2.33em;
+  margin-block-end: 2.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-weight: 700;
+}
+.m-0 {
+  margin: 0!important;
+  
+}
+.d-inline-block {
+  display: inline-block!important;
+}
+
+.limitar{
+  width: 10%;
+  max-width: 50px;
+  margin: auto;
+}
+
+.opac2:hover{
+  opacity: 0.9;
+}
+
+.opcacol:hover{
+  color: #7839BA;
+}
+
+.estilnav{
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.515);
+  background-color: #7839BA;
+}
+
+.so{
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+

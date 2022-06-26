@@ -1,0 +1,260 @@
+.imagbarra{
+    width: 20%;
+    max-width: 120px;
+    margin: auto;
+    margin-right: 5px;
+}
+
+.barra{
+    border-radius: 10px;
+    background-color: #7839BA;
+}
+
+.cuadro{
+    background: white;
+    border: 2px solid #7839BA;
+    padding: 25px; 
+}
+
+.titulo{
+    color: #7839BA;
+    text-align: center;
+}
+
+/*Tipo de fuente global*/
+*{
+    font-family:"Century Gothic";
+}
+
+.pimag{
+    width: 100%;
+    max-width: 500px;
+    min-width: 100px;
+    margin:auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.button{
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+h3,h6{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #7839BA;
+    font-weight: 700;
+}
+
+.forinp{
+    border-radius: 10px;
+}
+
+.imagens{
+    width: 100%;
+    max-width: 400px;
+    margin:auto;
+    display: block;
+}
+
+.experiencia{
+    margin:auto;
+}
+
+.letras{
+    text-align: center;
+}
+
+.simag{
+    width: 100%;
+    max-width: 400px;
+}
+
+.centradio{
+    margin-left: 50px;
+}
+
+.foto{
+    max-width: 100%;
+    width: 200px;
+    right: 300px;
+    margin: auto;
+}
+
+.fotperf{
+    margin: auto;
+    width: 100%;
+    width: 200px;
+    border-radius: 25px;
+}
+
+.imgradio{
+    margin: auto;
+    width: 100%;
+    width: 100px;
+    padding: 10px;
+}
+
+.relative {
+    position: relative;
+    width: 400px;
+    margin: auto;
+    display: block;
+    padding: 30px;
+  }
+
+.formacion {
+    position: relative;
+    width: 500px;
+    margin: auto;
+    display: block;
+    padding: 30px;
+  }
+
+.termino{
+    margin-top: 60px;
+    background-color:#b38fda;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.ingreso {
+    border-radius: 25px;
+    background-color: #FFFCF7;
+    width: 100%;
+    max-width: 250px;
+}
+
+.redes{
+    margin: auto; 
+    display:block; 
+    color: white;
+    width: 100%;
+    max-width: 35px;
+    margin-top: 10px;
+}
+
+.iconos{
+    margin: auto; 
+    display:block; 
+    width: 100%;
+    max-width: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.margen{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cuadroreser{
+    background: white;
+    border: 2px solid #7839BA;
+    width: 100%; 
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.caja{
+    width: 100%;
+    max-width: 250px;
+    border: 2px solid #ef5350;
+    background: #ef5350;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.caja1{
+    width: 100%;
+    max-width: 250px;
+    border: 2px solid #00a65a;
+    background: #00a65a;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.caja2{
+    width: 100%;
+    max-width: 250px;
+    border: 2px solid #5867dd;
+    background: #5867dd;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.caja3{
+    width: 100%;
+    max-width: 250px;
+    border: 2px solid #f39c12;
+    background: #f39c12;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    max-width: 460px;
+    display: block;
+    overflow-x: auto;
+    margin: auto;
+}
+
+.reserva{
+    width: 100%;
+    max-width: 160px;
+    overflow-x: auto;
+    display: block;
+    margin: auto;
+}
+
+.fotadm{
+    width: 100%;
+    max-width: 160px;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.calmaicon3{
+    width:100%;
+    max-width: 19px;
+    margin: auto;
+}
+
+.centrado{
+    text-align: center;
+}
+
+.limitar{
+    width: 10%;
+    max-width: 50px;
+    margin: auto;
+}
+
+.sepa{
+    margin-top: 5%;
+    
+}
+
+.separaciontex{
+    margin-top: 2%;
+}
+  
+.separacion_icon{
+    margin-top: 10%;
+}

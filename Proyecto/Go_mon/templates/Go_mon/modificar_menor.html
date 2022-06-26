@@ -1,0 +1,88 @@
+{% extends 'Go_mon/plantillaedit.html' %}
+{% load static %}
+
+{% block cabecera %}
+<title>Menor {{ menor.nombre }}   {{menor.p_Apellido}}</title>
+{% endblock cabecera %}
+
+{% block nombre %}
+<div class="container-fluid" style="margin-top: 80px;">
+    <div class="row">
+    <div class="col-md-2 col-sm-12">
+        <img src="{{apo.foto.url}}" alt="" width="90%" height="90%" class="img_left rounded" style="margin: 10px;">
+    </div>
+    <div class="col-md-10 col-sm-12">
+        <h2><br>{{ apo.nombre }}   {{ apo.p_apellido }}</h2>
+        <p>Registrado como : {{ user.rol.nombre }} </p>
+    </div>
+    </div>
+</div>
+{% endblock nombre %}
+
+{% block menor %}
+<form action="{% url 'modif' menor.rut_Menor apo.rut_apoderado %}" method="POST" name="formulario" id="formu_2" >
+    {% csrf_token %}
+    <h3> Modificar menor</h3>
+    <div class="row mb-3 " style="margin-top: 5%;">
+        <label1 for="cedula" class="col-sm-2 col-form-label">Rut del menor*</label1>
+        <div class="col-sm-10">
+            <input type="text" value="{{ menor.rut_Menor }}" class="form-control" id="cedula" name="cedula" style="border-radius: 50px;" required readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <p>Nombres*:</p>
+            <input type="text" value="{{ menor.nombre }}" class="form-control" name="hijo" id="hijo"style="border-radius: 50px;" required>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <p>Primer Apellido*:</p>
+            <input type="text" value="{{ menor.p_Apellido }}" class="form-control" name="pr_apellido" id="pr_apellido"
+                style="border-radius: 50px;" required>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <p>Segundo Apellido:</p>
+            <input type="text" value="{{ menor.s_Apellido }}" class="form-control" name="se_apellido" id="se_apellido"
+                style="border-radius: 50px;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12" style="margin-top: 2%;">
+            <p>Sexo*:</p>
+            <select name="genero" id="genero" class="form-control" style="border-radius: 50px;">
+                {% for s in sexo %}
+                    {% if s.id_Sexo == menor.sexo.id_Sexo %}
+                        <option value="{{s.id_Sexo}}">{{s.nombre}}</option>
+                    {% else %}
+                        <option value="{{s.id_Sexo}}">{{s.nombre}}</option>
+                    {% endif %}
+                {% endfor %}
+              </select>
+        </div>
+        <div class="col-md-4 col-sm-12" style="margin-top: 2%; border-radius: 50px;">
+            <p>Fecha de Nacimiento*:</p>
+            <label for="start" class="form-label" style="margin: 11px;"></label>
+            <input class="form-control" value="{{ menor.fNacimiento }}" type="date" id="start" name="start"
+                style="margin-top: -28px; border-radius: 50px;" required>
+        </div>
+        <div class="col-md-4 col-sm-12" style="margin-top: 2%; border-radius: 50px;">
+            <label for="start" class="form-label" style="margin: 11px;"></label>
+            <input class="form-control" type="text" id="rutApo" name="rutApo" value="{{ apo.rut_apoderado }}"
+                style="margin-top: -28px; border-radius: 50px;" required hidden>
+        </div>
+    </div>
+    <input class="form-control" type="hidden" id="correoU" name="correoU" value="{{ apo.correo }}"
+                style="margin-top: -28px; border-radius: 50px;" required>
+    <input class="form-control" type="hidden" id="pass" name="pass" value="{{ user.clave }}"
+                style="margin-top: -28px; border-radius: 50px;" required>
+
+
+    <center>
+        <div class="col-md-12 col-md-12">
+            <p id="mensaj" style="color: red;"></p>
+            <button type="submit" class="btn btn-primary"
+            style="background-color: #7839BA; color: rgb(255, 255, 255); border-color: #7839BA;">Guardar</button>
+        </div>
+    </center>
+</form>
+{% endblock menor %}
