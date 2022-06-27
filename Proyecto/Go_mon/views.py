@@ -452,8 +452,9 @@ def volapo(request, rut):
     x = Usuario.objects.get(rut = rut)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
+    cuid = Cuidador.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "opninera":cuid}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def mapa(request, rut, rutap):

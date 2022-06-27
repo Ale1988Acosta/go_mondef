@@ -199,6 +199,20 @@ hr {
     border-radius: 5px;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff !important;
+    background-color: #6f42c1 !important;
+}
+
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #6f42c1 !important;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
 
 
 

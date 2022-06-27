@@ -30,14 +30,14 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-ite">
-                        <a class="nav-link" href="">Mi sesión</a>
+                        <a class="nav-link" href="{% url 'volapo' datos.rut_apoderado  %}">Mi sesión</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Volver</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Pag_Principal'%}">Cerrar Sesión</a>
+                        <a class="nav-link" href="{% url 'salir'%}">Cerrar Sesión</a>
                     </li>
 
                 </ul>
