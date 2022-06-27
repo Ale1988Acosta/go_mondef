@@ -14,7 +14,9 @@ def inicioadmin(request):
     return render(request,'Go_mon/inicioadmin.html')
 
 def Historial_evaluacion(request):
-    return render(request,'Go_mon/Historial_evaluacion.html')
+    aa = Apoderado.objects.all()
+    contexto = {"datos": aa}
+    return render(request,'Go_mon/Historial_evaluacion.html', contexto)
 
 def adm(request):
     return render(request,'Go_mon/adm.html')
