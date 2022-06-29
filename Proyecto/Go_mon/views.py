@@ -14,7 +14,9 @@ def inicioadmin(request):
     return render(request,'Go_mon/inicioadmin.html')
 
 def Historial_evaluacion(request):
-    return render(request,'Go_mon/Historial_evaluacion.html')
+    aa = Apoderado.objects.all()
+    contexto = {"datos": aa}
+    return render(request,'Go_mon/Historial_evaluacion.html', contexto)
 
 def adm(request):
     return render(request,'Go_mon/adm.html')
@@ -269,7 +271,6 @@ def modificarCui(request):
     cuidador.correo = correoCui
     cuidador.celular = telfCui
     cuidador.save() #update
-    messages.success(request, 'Cuidador Modificado')
 
     x = Usuario.objects.get(rut = rutCui)
     x.correo = correoCui
@@ -365,7 +366,6 @@ def modifApo(request, rut):
     com = Comuna.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
     contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "com":com}
-    messages.success(request,'El menor ha sido eliminado')
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def registrar_menor(request):
@@ -402,7 +402,6 @@ def elimHijo(request, id,rut):
     sexos = Sexo.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
     contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
-    messages.success(request,'El menor ha sido eliminado')
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def salir(request):
@@ -444,7 +443,6 @@ def modif(request, id, rut):
     sexos = Sexo.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
     contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
-    messages.success(request,'El menor ha sido eliminado')
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def volapo(request, rut):
@@ -452,8 +450,9 @@ def volapo(request, rut):
     x = Usuario.objects.get(rut = rut)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
+    cuid = Cuidador.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "opninera":cuid}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def mapa(request, rut, rutap):
