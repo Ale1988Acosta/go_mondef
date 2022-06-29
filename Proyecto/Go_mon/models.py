@@ -117,6 +117,9 @@ class Dia_Bloq(models.Model):
     Dia = models.ForeignKey(Dia,on_delete=models.CASCADE)
     bloque = models.ForeignKey(Bloque,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.Dia.nombreDia + self.bloque.hora
+
 class Menor(models.Model):
     rut_Menor =  models.CharField(max_length=10,primary_key=True, verbose_name='Rut del Menor')
     nombre = models.CharField(max_length=50, verbose_name='Nombre del Menor')

@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $("#form1").submit(function(e){
-        e.preventDefault();
         let mensajeMostrar = "";
         let entrar = false;
 
@@ -23,7 +22,7 @@ $(document).ready(function(){
         }
         else{
             $("#mensaje").html("recerva completa, espere los resultados");
-            onclick=$(location).attr('href','buscador.html');
+            onclick=$(location).attr('href','');
         }
     });
 })

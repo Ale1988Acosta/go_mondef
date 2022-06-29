@@ -1,6 +1,7 @@
-from calendar import c
+from datetime import date, datetime
+import calendar
 from django.shortcuts import render, redirect
-from .models import Comuna, Direc_Apoderado, Direc_Cuidador, Habil_cuid, Habilidad, Idio_cuid, Idioma, Region, Servicio, Sexo, Apoderado, Cuidador, Menor, Usuario, Rol
+from .models import Comuna,Dia, Dia_Bloq,Bloque, Direc_Apoderado, Direc_Cuidador, Habil_cuid, Habilidad, Idio_cuid, Idioma, Region, Servi_Bloq, Servicio, Sexo, Apoderado, Cuidador, Menor, Usuario, Rol
 from django.contrib import messages
 from django.contrib.auth import logout
 
@@ -303,8 +304,7 @@ def inicio_sesion(request):
             aa= Apoderado.objects.get(rut_apoderado = x.rut)
             da= Direc_Apoderado.objects.get(rut_apoderado = x.rut)
             hijoselect = Menor.objects.filter(rut_apoderado = aa)
-            ninera = Cuidador.objects.all()     
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "opninera":ninera}
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
@@ -315,6 +315,12 @@ def inicio_sesion(request):
     except Usuario.DoesNotExist:
         messages.add_message(request=request, level=messages.SUCCESS, message="Clave y(o)Clave incorrecta")
         return redirect('iniciouser')
+
+def buscarcomuna (request):
+    comunabusq = request.POST['locality-input'] 
+    ninera = Cuidador.objects.all() 
+    contexto ={"opninera":ninera}
+    return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def modiA(request, rut):
     sex = Sexo.objects.all()
@@ -481,41 +487,147 @@ def servicui(request, rut, rutap):
     aa = Apoderado.objects.get(rut_apoderado = rutap)
     x = Usuario.objects.get(rut = rut)
     da= Direc_Cuidador.objects.get(rut_cuidador = cui)
-
+    conta = 0
     hoy=request.POST['fecha']
     fecha=request.POST['fecha']
+    fecha_dt = datetime.strptime(fecha, '%Y-%m-%d')
+    print(calendar.day_name[fecha_dt.weekday()])
+    dia = calendar.day_name[fecha_dt.weekday()]
+    texto = ""
+    if dia == "Monday":
+        texto="Lunes"
+    elif dia == "Tuesday":
+        texto = "Martes"
+    elif dia == "Wednesday":
+        texto = "Miercoles"
+    elif dia == "Thursday":
+        texto = "Jueves"
+    elif dia == "Friday":
+        texto = "Viernes"
+    elif dia == "Saturday":
+        texto = "Sabado"
+    else: 
+        texto = "Domingo"
+
     precio=request.POST['tarif']
     esta="si"
-    c1 = request.POST['c1']
-    c2 = request.POST['c2']
-    c3 = request.POST['c3']
-    c4 = request.POST['c4']
-    c5 = request.POST['c5']
-    c6 = request.POST['c6']
-    c7 = request.POST['c7']
-    c8 = request.POST['c8']
-    c9 = request.POST['c9']
-    c10 = request.POST['c10']
-    c11 = request.POST['c11']
-    c12 = request.POST['c12']
-    c13 = request.POST['c13']
-    c14 = request.POST['c14']
-    c15 = request.POST['c15']
-    c16 = request.POST['c16']
-    c17 = request.POST['c17']
-    c18 = request.POST['c18']
-
-
-    if (c1 == "1" or c2 == "1" or c3 == "1" or c4 == "1" or c5 == "1" or c6 == "1" 
-    or c7 == "1" or c8 == "1" or c9 == "1" or c10 == "1" or c11 == "1" or c12 == "1"
-    or c13 == "1" or c14 == "1" or c15 == "1" or c16 == "1" or c17 == "1" or c18 == "1"):
+    if(request.POST.get('c1')):
         conta = conta + 1
-    if (c1 == "" or c2 == "" or c3 == "" or c4 == "" or c5 == "" or c6 == "" 
-    or c7 == "" or c8 == "" or c9 == "" or c10 == "" or c11 == "" or c12 == ""
-    or c13 == "" or c14 == "" or c15 == "" or c16 == "" or c17 == "" or c18 == ""):
-        conta = conta
+    if(request.POST.get('c2')):
+        conta = conta + 1
+    if(request.POST.get('c3')):
+        conta = conta + 1
+    if(request.POST.get('c4')):
+        conta = conta + 1
+    if(request.POST.get('c5')):
+        conta = conta + 1
+    if(request.POST.get('c6')):
+        conta = conta + 1
+    if(request.POST.get('c7')):
+        conta = conta + 1
+    if(request.POST.get('c8')):
+        conta = conta + 1
+    if(request.POST.get('c9')):
+        conta = conta + 1
+    if(request.POST.get('c10')):
+        conta = conta + 1
+    if(request.POST.get('c11')):
+        conta = conta + 1
+    if(request.POST.get('c12')):
+        conta = conta + 1
+    if(request.POST.get('c13')):
+        conta = conta + 1
+    if(request.POST.get('c14')):
+        conta = conta + 1
+    if(request.POST.get('c15')):
+        conta = conta + 1
+    if(request.POST.get('c16')):
+        conta = conta + 1
 
-        Servicio.objects.create(fContrato = hoy, fInicio = fecha, fFinal = fecha, estatus=esta, 
-        costoH = precio, cantidadH = conta, rut_apoderado = aa, rut_cuidador = cui)
-        contexto ={"cuidador": x,"c": cui,"d":da, "datos": aa}
-        return render(request,'Go_mon/perfil.html',contexto)
+    serv = Servicio.objects.create(fContrato = hoy, fInicio = fecha, fFinal = fecha, estatus=esta, 
+    costoH = precio, cantidadH = conta, rut_apoderado = aa, rut_cuidador = cui)
+    if(request.POST.get('c1')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        print(id_dia)
+        id_bloque = Bloque.objects.get(hora = "08:00 - 08:50")
+        print(id_bloque)
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c2')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "09:00 - 09:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c3')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "10:00 - 10:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c4')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "11:00 - 11:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c5')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "12:00 - 12:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c6')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "13:00 - 13:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c7')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "14:00 - 14:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c8')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "15:00 - 15:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c9')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "16:00 - 16:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c10')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "17:00 - 17:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c11')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "18:00 - 18:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c12')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "19:00 - 19:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c13')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "20:00 - 20:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c14')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "21:00 - 21:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c15')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "22:00 - 22:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+    if(request.POST.get('c16')):
+        id_dia = Dia.objects.get(nombreDia = texto)
+        id_bloque = Bloque.objects.get(hora = "23:00 - 23:50")
+        id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
+        Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
+
+    contexto ={"cuidador": x,"c": cui,"d":da, "datos": aa}
+    return render(request,'Go_mon/perfil.html',contexto)

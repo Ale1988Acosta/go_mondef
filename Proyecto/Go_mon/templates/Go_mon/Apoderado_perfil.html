@@ -223,10 +223,10 @@
       <span class="sb-title">Busca tu dirección en el mapa</span>
     </div>
     <input type="text" placeholder="Ingrese su direccion" id="location-input" />
-    <input type="text" placeholder="Comuna" id="locality-input" />
+    <input type="text" placeholder="Comuna" id="locality-input" name="locality-input" />
     <input type="text" placeholder="Region" id="administrative_area_level_1-input" />
     <input type="text" placeholder="Pais" id="country-input" />
-    <button type="submit" class="button-cta">Buscar</button>
+    <a a href="{% url '' %}"><button type="submit" class="button-cta">Buscar</button></a>
   </div>
   <div class="map" id="gmp-map"></div>
 </div>
