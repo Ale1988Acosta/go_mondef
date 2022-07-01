@@ -327,11 +327,11 @@ def inicio_sesion(request):
 def buscarcomuna (request, rut):
     aa = Apoderado.objects.get(rut_apoderado = rut)
     da= Direc_Apoderado.objects.get(rut_apoderado = rut)
-
+    x = Usuario.objects.get(rut = rut)
     comunabusq = request.POST['locality-input'] 
     comu = Comuna.objects.get(nombreComuna = comunabusq)
     ninera = Direc_Cuidador.objects.filter(comuna = comu)
-    contexto ={"opninera":ninera, "datos": aa, "direc":da}
+    contexto ={"opninera":ninera, "datos": aa, "direc":da, "apoderado":x}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def modiA(request, rut):
