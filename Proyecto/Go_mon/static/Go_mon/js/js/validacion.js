@@ -3,6 +3,34 @@ $(document).ready(function(){
         let mensajeMostrar = "";
         let entrar = false;
 
+        var nom = $("#nomb").val();
+        
+        //nombre
+        if(nom.trim().length<4){
+            mensajeMostrar+= "El nombre debe contener mas de tres letras<br>";
+            entrar=true;
+        }
+        
+        var letra = nom.charAt(0);
+        if(!esMayuscula(letra)){
+            mensajeMostrar+="la primera letra del nombre esta en minúscula<br>";
+            entrar=true;
+            }
+
+
+        var ap = $("#Ap").val();
+        //p_apellido
+        if($("#Ap").val().trim().length==0){
+            mensajeMostrar+= "Debe ingresar el primer apellido<br>";
+            entrar=true;
+        }
+
+        var letra = ap.charAt(0);
+        if(!esMayuscula(letra)){
+        mensajes +="la primera letra del apellido esta en minúscula<br>";
+        entrar=true;
+        }
+
         // telefono
         var telfo = $("#telefo").val();
         if(telfo.trim().length!=9){
@@ -80,7 +108,7 @@ $(document).ready(function(){
             $("#mensaje").html(mensajeMostrar);
         }
         else{
-            onclick=$(location).attr('href','');
+
         }
     });
 })
