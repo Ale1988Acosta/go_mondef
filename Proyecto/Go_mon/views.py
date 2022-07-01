@@ -304,7 +304,9 @@ def inicio_sesion(request):
             aa= Apoderado.objects.get(rut_apoderado = x.rut)
             da= Direc_Apoderado.objects.get(rut_apoderado = x.rut)
             hijoselect = Menor.objects.filter(rut_apoderado = aa)
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+            servicioApo = Servicio.objects.filter(rut_apoderado = aa)
+            Servi_BloqApo = Servi_Bloq.objects.filter(servicio = servicioApo)
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "sbap":Servi_BloqApo}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
@@ -316,10 +318,13 @@ def inicio_sesion(request):
         messages.add_message(request=request, level=messages.SUCCESS, message="Clave y(o)Clave incorrecta")
         return redirect('iniciouser')
 
-def buscarcomuna (request):
+def buscarcomuna (request, rut):
     comunabusq = request.POST['locality-input'] 
-    ninera = Cuidador.objects.all() 
-    contexto ={"opninera":ninera}
+    comu = Comuna.objects.get(nombreComuna = comunabusq)
+    aa = Apoderado.objects.get(rut_apoderado = rut)
+    da= Direc_Apoderado.objects.get(rut_apoderado = rut)
+    ninera = Direc_Cuidador.objects.filter(comuna = comu)
+    contexto ={"opninera":ninera, "datos": aa, "direc":da}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def modiA(request, rut):

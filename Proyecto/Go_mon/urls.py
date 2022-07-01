@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import Historial_evaluacion, Pag_Principal, defrecerva, elimHijo, habilidades, ingresaidioma, mapa, modiA, modiMenor, modif, modifApo, modificar_cuidador, modificarCui,salir,registrar_menor,inicio_sesion, listarroles,iniciouser,adm,admbanear,admministrador,buscador,cambio,registrar_apoderado, registrar_cuidador, registrar_dir, registrar_dircui, registro, servicui, volapo, volcui
+from .views import Historial_evaluacion, Pag_Principal, buscarcomuna, defrecerva, elimHijo, habilidades, ingresaidioma, mapa, modiA, modiMenor, modif, modifApo, modificar_cuidador, modificarCui,salir,registrar_menor,inicio_sesion, listarroles,iniciouser,adm,admbanear,admministrador,cambio,registrar_apoderado, registrar_cuidador, registrar_dir, registrar_dircui, registro, servicui, volapo, volcui
 
 urlpatterns = [
     path('',Pag_Principal,name="Pag_Principal"),
@@ -38,4 +38,5 @@ urlpatterns = [
     path('volapo/<rut>',volapo, name="volapo"),
     path('modifApo/<rut>',modifApo, name="modifApo"),
     path('modiA/<rut>',modiA, name="modiA"),
+    path('buscarcomuna/<rut>',buscarcomuna, name="buscarcomuna"),
 ]

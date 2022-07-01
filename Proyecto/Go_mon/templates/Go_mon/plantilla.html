@@ -220,7 +220,7 @@
                 <a class="nav-link" data-bs-toggle="pill" href="#Informacion">Información del menor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="pill" href="#calendario">Calendario</a>
+                <a class="nav-link" data-bs-toggle="pill" href="#calendario">Reservas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="pill" href="#mensajes">Mensajes </a>
@@ -241,22 +241,8 @@
         {% endblock menor %}
     </div>
     <div id="calendario" class="container tab-pane fade">
-        <div style="margin: auto; text-align: center;">
-            <form action="" method="POST" name="formulario" id="formu_3">
-                <p>Selecciona una semana: <input type="week" name="unasemana" id="unasemana" class="form-control"
-                        style="border-radius: 50px; width: 100%; max-width: 200px; margin: auto; margin-top: 20px;"
-                        required></p>
-        </div>
-
-        
-        <center>
-            <p id="mensajec" style="color: red;"></p>
-            <button type="submit" class="btn btn-primary"
-                style=" background-color: #7839BA; color: rgb(255, 255, 255); border-color: #7839BA;">Ver</button>
-        </center>
-        </form>
-
-
+        {% block reservaslistas %}
+        {% endblock reservaslistas %}
     </div>
     <div id="mensajes" class="container tab-pane fade"><br>
 
