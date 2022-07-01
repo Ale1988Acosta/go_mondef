@@ -306,12 +306,12 @@ def inicio_sesion(request):
             aa= Apoderado.objects.get(rut_apoderado = x.rut)
             da= Direc_Apoderado.objects.get(rut_apoderado = x.rut)
             hijoselect = Menor.objects.filter(rut_apoderado = aa)
+            print("1")
             servicioApo = Servicio.objects.filter(rut_apoderado = aa)
-            Servi_BloqApo = Servi_Bloq.objects.filter(servicio = servicioApo)
-            db = Dia_Bloq.objects.filter(id_Db = Servi_BloqApo)
-            dia = Dia.objects.filter(nombreDia = db)
-            bloq = Bloque.objects.filter(hora = db)
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq}
+            print("2")
+            Servi_BloqApo = Servi_Bloq.objects.filter(id_Sb = servicioApo)
+            print("3")
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "diabloq":Servi_BloqApo}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)

@@ -4,7 +4,7 @@ var esp = /^[a-zA-Z\d?]+$/;
 var msj = document.getElementById("#mensaje");
 
 $(document).ready(function(){
-    $("#reg").click(function(e){
+    $("#FormReg").click(function(e){
         var nomb = $("#nomb").val();
         var ape = $("#Ap").val();
         var telefo = $("#telefo").val();

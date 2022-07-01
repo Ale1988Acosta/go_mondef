@@ -207,13 +207,15 @@
       <tr>
         <td>{{ s.fInicio }}</td>
         <td>{{ s.rut_cuidador.nombre }} {{ datos.p_apellido }} {{ datos.s_apellido }}</td>
-        {% endfor %}
-        {% for s in sba  %} 
-        <td>{{ s.rut_cuidador }}</td>
-        {% endfor %}
+        <td>{{ s.id_servicio.id_Db }}</td>
       </tr>
+      {% endfor %}
     </table>
 
+    {% for s in diabloq  %} 
+    <input class="form-control" type="text" id="c" name="c" value="{{ s.id_Db }}">
+    <input class="form-control" type="text" id="c" name="c" value="{{ s.id_servicio }}">
+    {% endfor %}
 {% endblock reservaslistas %}
 
 

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#form1").submit(function(e){
+    $("#FormReg").submit(function(e){
         let mensajeMostrar = "";
         let entrar = false;
 

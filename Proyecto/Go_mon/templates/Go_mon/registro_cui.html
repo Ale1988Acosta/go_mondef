@@ -56,7 +56,7 @@
           <strong>Informacion del Cuidador</strong>
         </div>
         <div class="card-body">
-          <form action="{% url 'reg_cuidador' %}" method="POST" enctype="multipart/form-data" name="FormReg"
+          <form action="{% url 'reg_cuidador' %}" method="POST" enctype="multipart/form-data" name="FormReg" 
             id="FormReg">
             {% csrf_token %}
             <div class="form-group">
@@ -70,19 +70,15 @@
             </div>
             <div class="form-group">
               <input type="text" class="form-control" required id="nomb" name="nomb" placeholder="Nombre(s)*"
-                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;">
-              <div id="mensajeN" class="error" style="margin-right: 15px;">El campo del nombre tiene información
-                incorrecta</div>
+                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;" required>
             </div>
             <div class="form-group">
               <input type="text" class="form-control" required id="Ap" name="Ap" placeholder="Primer apellido*"
-                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;">
-              <div id="mensajeA" class="error" style="margin-right: 15px;">El campo del Apellido tiene información
-                incorrecta</div>
+                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;" required>
             </div>
             <div class="form-group">
               <input type="text" class="form-control" id="Ap2" name="Ap2" placeholder="Segundo apellido"
-                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;">
+                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;" required>
             </div>
             <div class="form-group">
               <label class="form-label" style="margin-top: 40px;">Fecha de Nacimiento*:</label>
@@ -92,7 +88,7 @@
             <div class="form-group">
               <select name="sex1" id="sex1" class="form-control"
                 style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;">
-                <option selected disabled value="">Sexo*</option>
+                <option selected disabled value="" required>Sexo*</option>
                 {% for i in lista_sexos %}
                 <option value="{{i.id_Sexo}}">{{i.nombre}}</option>
                 {% endfor %}
@@ -100,7 +96,7 @@
             </div>
             <div class="form-group">
               <input type="text" class="form-control" required id="telefo" name="telefo" placeholder="Telefono*"
-                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;">
+                style="border-color: #000000; font-size: 14px; border-radius: 6px; margin-top: 40px;" required>
               <div id="mensajeD" class="error" style="margin-right: 15px;">El formato de el telefono no es correcto.
                 Deben ser 9 numeros</div>
             </div>
@@ -119,7 +115,7 @@
               </div>
               <div class="col-md-8 col-sm-12" style="margin: auto; text-align: center;">
                 <label for="Image" class="form-label letras"><h5>Foto de presentación*</h5></label>
-                <input class="form-control forinp" type="file" id="Image" name="Image" onchange="preview()">
+                <input class="form-control forinp" type="file" id="Image" name="Image" onchange="preview()" required>
               </div>
             </div>
             <div class="form-group">
@@ -205,13 +201,13 @@
                   he trabajado, y puedo proporcionar los datos de contacto.</label>
               </div>
             </div>
-            <p id="mensaje"></p>
+            <p id="mensaje" style="color: red;"></p>
             <div class="row">
               <center><input type="submit" name="registro" value="Guardar" id="reg" class="btn submit"
                   style="border-radius: 5px; color: white; background-color: #7839BA; border-color:#7839BA; margin-top: 30px;">
               </center>
             </div>
-            <p id="mensaje" class="colorBlanco"></p>
+            <p id="mensaje"></p>
 
           </form>
         </div>
@@ -288,8 +284,7 @@
     </div>
   </div>
   </div>
-  <script src="{% static 'Go_mon/js/js/validaRegistroApo.js' %}"></script>
-  <script src="{% static 'Go_mon/js/js/validacion.js'%}"></script>
+  <script src="{% static 'Go_mon/js/js/validacion.js' %}"></script>
 </body>
 
 </html>
