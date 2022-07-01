@@ -201,13 +201,17 @@
       <tr>
         <td>Fecha</td>
         <td>Nombre del cuidador</td>
+        <td>Bloque</td>
       </tr> 
       {% for s in serapo  %} 
       <tr>
         <td>{{ s.fInicio }}</td>
         <td>{{ s.rut_cuidador.nombre }} {{ datos.p_apellido }} {{ datos.s_apellido }}</td>
+        {% endfor %}
+        {% for s in sba  %} 
+        <td>{{ s.rut_cuidador }}</td>
+        {% endfor %}
       </tr>
-      {% endfor %}
     </table>
 
 {% endblock reservaslistas %}
@@ -273,13 +277,13 @@
     </tr>
     {% for m in opninera %}
     <tr>
-      <td>{{ m.rut_cuidador }} </td>
-      <td>{{ m.nombre}}</td>
-      <td>{{ m.p_apellido }}</td>
-      <td>{{ m.s_apellido}}</td>
-      <td>{{ m.descripcion}}</td>
-      <td>{{ m.sexo.nombre}}</td>
-      <td><a href="{% url 'mapa' m.rut_cuidador datos.rut_apoderado %}" class="btn btn-primary" style=" text-align: center;
+      <td>{{ m.rut_cuidador.rut_cuidador  }} </td>
+      <td>{{ m.rut_cuidador.nombre}}</td>
+      <td>{{ m.rut_cuidador.p_apellido }}</td>
+      <td>{{ m.rut_cuidador.s_apellido}}</td>
+      <td>{{ m.rut_cuidador.descripcion}}</td>
+      <td>{{ m.rut_cuidador.sexo.nombre}}</td>
+      <td><a href="{% url 'mapa' m.rut_cuidador.rut_cuidador datos.rut_apoderado %}" class="btn btn-primary" style=" text-align: center;
             background-color: #7839BA; color: rgb(255, 255, 255);border-color: #7839BA;">Ver</a>
       </td>
     </tr>

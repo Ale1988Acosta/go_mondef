@@ -325,14 +325,13 @@ def inicio_sesion(request):
         return redirect('iniciouser')
 
 def buscarcomuna (request, rut):
-    print("4")
-    comunabusq = request.POST['locality-input'] 
-    comu = Comuna.objects.get(nombreComuna = comunabusq)
     aa = Apoderado.objects.get(rut_apoderado = rut)
     da= Direc_Apoderado.objects.get(rut_apoderado = rut)
+
+    comunabusq = request.POST['locality-input'] 
+    comu = Comuna.objects.get(nombreComuna = comunabusq)
     ninera = Direc_Cuidador.objects.filter(comuna = comu)
     contexto ={"opninera":ninera, "datos": aa, "direc":da}
-    
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def modiA(request, rut):
@@ -429,7 +428,6 @@ def elimHijo(request, id,rut):
 
 def salir(request):
     logout(request)
-    messages.success(request,"Su sesión ha cerrado correctamente")
     return redirect('Pag_Principal')
 
 def modiMenor(request, id, rut):
