@@ -306,13 +306,17 @@ def inicio_sesion(request):
             hijoselect = Menor.objects.filter(rut_apoderado = aa)
             servicioApo = Servicio.objects.filter(rut_apoderado = aa)
             Servi_BloqApo = Servi_Bloq.objects.filter(servicio = servicioApo)
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "sbap":Servi_BloqApo}
+            db = Dia_Bloq.objects.filter(id_Db = Servi_BloqApo)
+            dia = Dia.objects.filter(nombreDia = db)
+            bloq = Bloque.objects.filter(hora = db)
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
             direccion = Direc_Cuidador.objects.get(rut_cuidador = x.rut)
+            servicioCui = Servicio.objects.filter(rut_cuidador = cuidador)
             x = Usuario.objects.get(rut = x.rut)
-            contexto ={"c": cuidador, "d":direccion, "x" : x}
+            contexto ={"c": cuidador, "d":direccion, "x" : x, "sercui":servicioCui}
             return render(request,'Go_mon/perfil.html',contexto)
     except Usuario.DoesNotExist:
         messages.add_message(request=request, level=messages.SUCCESS, message="Clave y(o)Clave incorrecta")

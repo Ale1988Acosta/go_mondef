@@ -199,20 +199,18 @@
 {% block reservaslistas %}
     <table class="table table-responsive-xl table-responsive" style="text-align: center; margin-top: 50px;">
       <tr>
-        <td>Bloque</td>
-        <td>Fecha de Inicio</td>
+        <td>Fecha</td>
         <td>Nombre del cuidador</td>
       </tr> 
       {% for s in serapo  %} 
       <tr>
-        <td>{{ s.fInicio }} </td> 
-        <td>{{ sbap.id_Db }}</td>
-        <td>{{ s.rut_cuidador }} {{ datos.p_apellido }} {{ datos.s_apellido }}</td>
+        <td>{{ s.fInicio }}</td>
+        <td>{{ s.rut_cuidador.nombre }} {{ datos.p_apellido }} {{ datos.s_apellido }}</td>
       </tr>
       {% endfor %}
     </table>
-{% endblock reservaslistas %}
 
+{% endblock reservaslistas %}
 
 
 {% block direccion %}
