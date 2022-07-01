@@ -311,8 +311,7 @@ def inicio_sesion(request):
             db = Dia_Bloq.objects.filter(id_Db = Servi_BloqApo)
             dia = Dia.objects.filter(nombreDia = db)
             bloq = Bloque.objects.filter(hora = db)
-            ninera = Cuidador.objects.all()
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq, "opninera":ninera}
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
