@@ -239,13 +239,19 @@
         alt="">
       <span class="sb-title">Busca tu dirección en el mapa</span>
     </div>
-    <form action="{% url 'buscarcomuna' datos.rut_apoderado %}" method="POST" name="formulario" id="formu_3">
+    <form action="{% url 'buscarcomuna' datos.rut_apoderado %}" method="POST" name="formulario" id="formu_9">
       {% csrf_token %}
       <input class="form-control" type="text" placeholder="Ingrese su direccion" id="location-input" style="margin-top: 50px;"/>
       <input class="form-control" type="text" placeholder="Comuna" id="locality-input" name="locality-input" style="margin-top: 50px;"/>
       <input class="form-control" type="text" placeholder="Region" id="administrative_area_level_1-input" style="margin-top: 50px;"/>
       <input class="form-control" type="text" placeholder="Pais" id="country-input" style="margin-top: 50px; margin-bottom: 50px;"/>
-      <button type="submit" class="button-cta">Buscar</button>
+      <center>
+        <div class="col-md-12 col-md-12">
+          <p id="mensaj" style="color: red;"></p>
+          <button type="submit" class="btn btn-primary"
+            style="background-color: #7839BA; color: rgb(255, 255, 255); border-color: #7839BA;">Buscar</button>
+        </div>
+      </center>
     </form>
   </div>
   <div class="map" id="gmp-map"></div>
