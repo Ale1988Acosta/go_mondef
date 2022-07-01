@@ -111,9 +111,13 @@
                     <div class="col-md-6 col-sm-12" style="margin-bottom: 20px;">
                         <p>Comuna:</p>
                         <select name="comuna" id="comuna" class="form-control" style="border-radius: 50px;">
-                            {% for com in com %}
-                            <option value="{{com.id_Comuna}}">{{com.nombreComuna}}</option>
-                            {% endfor %}
+                        {% for c in com %}
+                        {% if c.id_Comuna == di.comuna.id_Comuna %}
+                            <option value="{{c.id_Comuna}}" selected>{{c.nombreComuna}}</option>
+                        {% else %}
+                            <option value="{{c.id_Comuna}}">{{c.nombreComuna}}</option>
+                        {% endif %}
+                        {% endfor %}                   
                         </select>
                     </div>
                 </div>

@@ -250,7 +250,8 @@ def modificar_cuidador(request, rut):
     cuidador1 = Cuidador.objects.get(rut_cuidador = rut) # obtengo los datos del cuidador 
     direccion = Direc_Cuidador.objects.get(rut_cuidador = rut)
     com = Comuna.objects.all()
-    contexto = {"c" : cuidador1, "d":direccion, "com":com}
+    servicioCui = Servicio.objects.filter(rut_cuidador = cuidador1)
+    contexto = {"c" : cuidador1, "d":direccion, "com":com, "sercui":servicioCui}
     return render(request,'go_mon/mod_perfil.html',contexto)
 
 def modificarCui(request):
@@ -288,7 +289,8 @@ def modificarCui(request):
     sexos = Sexo.objects.all()
     cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
     direccion = Direc_Cuidador.objects.get(rut_cuidador = x.rut)
-    contexto ={"c": cuidador, "d":direccion, "x" : x}
+    servicioCui = Servicio.objects.filter(rut_cuidador = cuidador)
+    contexto ={"c": cuidador, "d":direccion, "x" : x, "sercui":servicioCui}
     return render(request,'Go_mon/perfil.html',contexto)
 
 def inicio_sesion(request):
@@ -309,7 +311,8 @@ def inicio_sesion(request):
             db = Dia_Bloq.objects.filter(id_Db = Servi_BloqApo)
             dia = Dia.objects.filter(nombreDia = db)
             bloq = Bloque.objects.filter(hora = db)
-            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq}
+            ninera = Cuidador.objects.all()
+            contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo, "db":db, "dia":dia, "bloq":bloq, "opninera":ninera}
             return render(request,'Go_mon/Apoderado_perfil.html',contexto)
         else:
             cuidador= Cuidador.objects.get(rut_cuidador = x.rut)
@@ -337,9 +340,10 @@ def modiA(request, rut):
     x = Usuario.objects.get(rut = rut)
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
     com = Comuna.objects.all()
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     print("primero")
 
-    contexto = {"sexo":sex, "apo":aa, "user":x, "di":da, "com":com}
+    contexto = {"sexo":sex, "apo":aa, "user":x, "di":da, "com":com, "serapo":servicioApo}
     return render(request,'Go_mon/modificar_apo.html',contexto)
 
 def modifApo(request, rut):
@@ -377,10 +381,11 @@ def modifApo(request, rut):
     aa = Apoderado.objects.get(rut_apoderado = rut)
     x = Usuario.objects.get(rut = rut)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
     com = Comuna.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "com":com}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "com":com, "serapo":servicioApo}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def registrar_menor(request):
@@ -401,9 +406,10 @@ def registrar_menor(request):
     da= Direc_Apoderado.objects.get(rut_apoderado = rutApo)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     x = Usuario.objects.get(rut = rutApo)
     print("2")
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def elimHijo(request, id,rut):
@@ -414,9 +420,10 @@ def elimHijo(request, id,rut):
     aa = Apoderado.objects.get(rut_apoderado = rut)
     x = Usuario.objects.get(rut = rut)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def salir(request):
@@ -429,9 +436,10 @@ def modiMenor(request, id, rut):
     sex = Sexo.objects.all()
     aa = Apoderado.objects.get(rut_apoderado = rut)
     x = Usuario.objects.get(rut = rut)
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     print("primero")
 
-    contexto = {"menor":men, "sexo":sex, "apo":aa, "user":x}
+    contexto = {"menor":men, "sexo":sex, "apo":aa, "user":x, "serapo":servicioApo}
     return render(request,'Go_mon/modificar_menor.html',contexto)
 
 def modif(request, id, rut):
@@ -456,8 +464,9 @@ def modif(request, id, rut):
     x = Usuario.objects.get(rut = rut)
     hijoselect = Menor.objects.filter(rut_apoderado = aa)
     sexos = Sexo.objects.all()
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
     da= Direc_Apoderado.objects.get(rut_apoderado = aa)
-    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect}
+    contexto ={"apoderado": x,"datos": aa,"direc":da, "sexomen":sexos,"hijo":hijoselect, "serapo":servicioApo}
     return render(request,'Go_mon/Apoderado_perfil.html',contexto)
 
 def volapo(request, rut):
@@ -638,5 +647,11 @@ def servicui(request, rut, rutap):
         id_dia_bloque = Dia_Bloq.objects.get(Dia = id_dia, bloque = id_bloque)
         Servi_Bloq.objects.create(id_Db = id_dia_bloque, servicio = serv)
 
-    contexto ={"cuidador": x,"c": cui,"d":da, "datos": aa}
-    return render(request,'Go_mon/perfil.html',contexto)
+    hijoselect = Menor.objects.filter(rut_apoderado = aa)
+    y = Usuario.objects.get(rut = rutap)
+    da= Direc_Apoderado.objects.get(rut_apoderado = aa)
+    servicioApo = Servicio.objects.filter(rut_apoderado = aa)
+    sexos = Sexo.objects.all()
+
+    contexto ={"cuidador": x,"c": cui,"d":da, "datos": aa, "direc":da, "apoderado": y, "hijo":hijoselect, "serapo":servicioApo, "sexomen":sexos}
+    return render(request,'Go_mon/Apoderado_perfil.html',contexto)

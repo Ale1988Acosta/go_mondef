@@ -241,10 +241,10 @@
     </div>
     <form action="{% url 'buscarcomuna' datos.rut_apoderado %}" method="POST" name="formulario" id="formu_3">
       {% csrf_token %}
-      <input class="form-control" type="text" placeholder="Ingrese su direccion" id="location-input" />
-      <input class="form-control" type="text" placeholder="Comuna" id="locality-input" name="locality-input" />
-      <input class="form-control" type="text" placeholder="Region" id="administrative_area_level_1-input" />
-      <input class="form-control" type="text" placeholder="Pais" id="country-input" />
+      <input class="form-control" type="text" placeholder="Ingrese su direccion" id="location-input" style="margin-top: 50px;"/>
+      <input class="form-control" type="text" placeholder="Comuna" id="locality-input" name="locality-input" style="margin-top: 50px;"/>
+      <input class="form-control" type="text" placeholder="Region" id="administrative_area_level_1-input" style="margin-top: 50px;"/>
+      <input class="form-control" type="text" placeholder="Pais" id="country-input" style="margin-top: 50px; margin-bottom: 50px;"/>
       <button type="submit" class="button-cta">Buscar</button>
     </form>
   </div>
