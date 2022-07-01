@@ -112,11 +112,11 @@
                         <p>Comuna:</p>
                         <select name="comuna" id="comuna" class="form-control" style="border-radius: 50px;">
                         {% for c in com %}
-                        {% if c.id_Comuna == di.comuna.id_Comuna %}
-                            <option value="{{c.id_Comuna}}" selected>{{c.nombreComuna}}</option>
-                        {% else %}
-                            <option value="{{c.id_Comuna}}">{{c.nombreComuna}}</option>
-                        {% endif %}
+                            {% if c.id_Comuna == d.comuna.id_Comuna %}
+                                <option value="{{c.id_Comuna}}" selected>{{c.nombreComuna}}</option>
+                            {% else %}
+                                <option value="{{c.id_Comuna}}">{{c.nombreComuna}}</option>
+                            {% endif %}
                         {% endfor %}                   
                         </select>
                     </div>
