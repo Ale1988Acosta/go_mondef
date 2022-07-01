@@ -71,7 +71,7 @@
             <div class="form-group">
               <input type="text" class="form-control" required id="rut" name="rut" placeholder="Rut*"
                 style="border-color: #000000; font-size: 14px; border-radius: 6px;">
-              <div id="mensajeN" class="error" style="margin-right: 15px;"></div>
+              <div id="mensajeN" class="error" style="margin-right: 15px;">Rut invalido XXXXXXXX-X</div>
             </div>
             <div class="form-group">
               <input type="email" class="form-control" required id="email" name="email"
@@ -97,8 +97,8 @@
               style=" border-radius: 10px; text-align: center; padding: 10px; color: #7839BA; width: 100%; max-width: 500px; margin: auto; margin-top: 40px;">
               Te Registraras como:</h5>
             <div class="form-group">
-              <select required name="elrol" id="elrol" class="form-control"
-                style="border-color: #000000; font-size: 14px; border-radius: 6px;">
+              <select name="elrol" id="elrol" class="form-control"
+                style="border-color: #000000; font-size: 14px; border-radius: 6px;" required>
                 <option selected disabled value="">Elige*:</option>
                 {% for i in qroles%}
                 <option value="{{i.id_Rol}}">{{i.nombre}}</option>
@@ -111,7 +111,7 @@
                   style="border-radius: 5px; color: white; background-color: #7839BA; border-color:#7839BA; margin-top: 30px;">
               </center>
             </div>
-            <p id="mensaje" class="colorBlanco"></p>
+            <p id="mensaje"></p>
 
           </form>
           <div class="col-md-12 col-sm-12" style="text-align: center; margin-top: 10px; font-size: 12px;"><strong>¿Ya
